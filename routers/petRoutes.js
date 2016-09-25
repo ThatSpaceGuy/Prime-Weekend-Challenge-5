@@ -3,11 +3,11 @@ var router = express.Router();
 
 var mongoose = require('mongoose');
 //model
-var Item = require('../models/dbItem.js');
+var Pet = require('../models/pet.js');
 
 router.get('/all', function(req,res){
   console.log('/all route hit');
-    Item.find({}, function(err, dbResults){
+    Pet.find({}, function(err, dbResults){
       if(err){
         console.log('error occurred:', err);
         res.sendStatus(500); // Internal Server error
@@ -23,18 +23,19 @@ router.post('/create', function(req, res){
 
   var sentData = req.body;
 
-  var newItem = new Item({
-    name: sentData.name,
-    property2: sentData.property2,
-    property3: sentData.propery3
+  var newPet = new Pet({
+    name: sentData.petName,
+    species: sentData.petSpecies,
+    age: sentData.petAge,
+    image: sentData.petImage
   });
 
-  newItem.save(function(err){
+  newPet.save(function(err){
     if(err){
       console.log('error occurred:', err);
       res.sendStatus(500); // Internal Server error
     } else {
-      console.log('New Item saved successfully!');
+      console.log('New Pet saved successfully!');
       res.sendStatus(201); // Status created
     }
   });

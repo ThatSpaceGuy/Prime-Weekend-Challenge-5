@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded( {extended: false } ));
 app.use(bodyParser.json());
 
 //routers
-var itemRouter = require('../routers/itemRoutes.js');
+var petRouter = require('../routers/petRoutes.js');
 // use routes -- all routes in this router must start with /
-app.use('/', itemRouter);
+app.use('/', petRouter);
 
 // :id give you the option to grab an id from the url
 // more info: Google (express routing)
@@ -29,7 +29,7 @@ app.get('/test/:id?', function(req,res){
 
 
 // connection string
-mongoose.connect('mongodb://localhost:27017/piUserDb');
+mongoose.connect('mongodb://localhost:27017/petDB');
 
 
 // spin up server
