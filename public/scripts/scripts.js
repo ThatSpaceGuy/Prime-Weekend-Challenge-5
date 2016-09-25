@@ -16,14 +16,14 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
   $scope.petRoster = petRoster;
 
   $scope.addPet = function(){
-    console.log('in addPet', $scope.newPet);
+    console.log('in addPet', $scope.nameIn);
 
     var newObject = {
       // title: $scope.newPet
-      petName: 'Test Name',
-      petSpecies: 'Test Species',
-      petAge: 3,
-      petImage: 'http://devjana.net/pi/pets/abby.jpg'
+      petName: $scope.nameIn,
+      petSpecies: $scope.speciesIn,
+      petAge: $scope.ageIn,
+      petImage: $scope.imageIn
     }; // end new pet
     console.log('sending:',newObject);
     // test send via http to post Route
@@ -34,6 +34,7 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
     }).then(function ( response ){
       console.log('back from server with:', response);
     });
+    $scope.showAll();
   }; // end addPet
 
   $scope.showAll = function(){
