@@ -39,7 +39,6 @@ router.post('/create', function(req, res){
       res.sendStatus(201); // Status created
     }
   });
-  res.sendStatus(200);
 });
 
 module.exports = router;

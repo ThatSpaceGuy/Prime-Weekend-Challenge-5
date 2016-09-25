@@ -25,6 +25,28 @@ Look into delete functionality with Mongoose and add a button in the Pets view t
 Pro Mode
 Look into Filtering. In the Pets view, include a button to turn on Alphabetical Sorting of the pets that can be toggled on and off.
 
+Pet image urls:
+http://devjana.net/pi/pets/abby.jpg
+http://devjana.net/pi/pets/Ani.jpg
+http://devjana.net/pi/pets/ash.jpg
+http://devjana.net/pi/pets/aye-aye.jpg
+http://devjana.net/pi/pets/boomerJosie.jpg
+http://devjana.net/pi/pets/Chico.jpg
+http://devjana.net/pi/pets/Dexter.jpg
+http://devjana.net/pi/pets/Faelan.jpg
+http://devjana.net/pi/pets/ginger.jpg
+http://devjana.net/pi/pets/henry.jpg
+http://devjana.net/pi/pets/Kaia-boo.jpg
+http://devjana.net/pi/pets/Kemper.jpg
+http://devjana.net/pi/pets/Lucy.jpg
+http://devjana.net/pi/pets/Milo.jpg
+http://devjana.net/pi/pets/Nuks.jpg
+http://devjana.net/pi/pets/pewter.jpg
+http://devjana.net/pi/pets/silverMist.png
+http://devjana.net/pi/pets/spark.JPG
+http://devjana.net/pi/pets/susan.png
+
+
 Versioning Plan
 ---------------
 * 0.1.0 - ReadMe & html/js/css/server handshakes - initial commit

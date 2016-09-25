@@ -3,7 +3,7 @@ console.log('scripts.js sourced!');
 
 var myApp = angular.module('myApp',[]);
 
-var allItems = [];
+var allPets = [];
 
 /// == Function Declarations == ///
 
@@ -13,23 +13,29 @@ var allItems = [];
 myApp.controller('mainController', ['$scope','$http',function($scope,$http){
   console.log('NG');
 
-  $scope.addItem = function(){
-    console.log('in addItem', $scope.newItem);
+  $scope.addPet = function(){
+    console.log('in addPet', $scope.newPet);
 
     var newObject = {
-      title: $scope.newItem
-    }; // end new song
+      // title: $scope.newPet
+      petName: 'Test Name',
+      petSpecies: 'Test Species',
+      petAge: 3,
+      petImage: 'http://devjana.net/pi/pets/abby.jpg'
+    }; // end new pet
     console.log('sending:',newObject);
     // test send via http to post Route
     $http({
       method: 'POST',
-      url: '/testPost',
+      url: '/create',
       data: newObject
     }).then(function ( response ){
       console.log('back from server with:', response);
     });
 
-    allSongs.push(newObject);
-    console.log('allItems:', allItems);
-  };
+    allPets.push(newObject);
+    console.log('allPets:', allPets);
+  }; // end addPet
+
+  $scope.addPet();
 }]);
