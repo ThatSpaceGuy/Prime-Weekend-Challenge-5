@@ -37,5 +37,37 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
     console.log('allPets:', allPets);
   }; // end addPet
 
-  $scope.addPet();
+  $scope.showAll = function(){
+    console.log('in showAll', $scope);
+    $http({
+      method: 'GET',
+      url: '/all',
+    }).then(function ( response ){
+      console.log('back from server with:', response);
+      petRoster = response.data;
+      var petsView = angular.element(document.getElementById('petRosterView'));
+      petsView.empty();
+      for (var i = 0; i < petRoster.length; i++) {
+        // first add blank strings where needed
+        if (!(petRoster[i].name)){
+          petRoster[i].name = '';
+        }
+        if (!(petRoster[i].species)){
+          petRoster[i].species = '';
+        }
+        if (!(petRoster[i].age)){
+          petRoster[i].age = '';
+        }
+        if (!(petRoster[i].image)){
+          petRoster[i].image = '';
+        }
+        petsView.append('<tr><td>'+(i+1)+'</td><td>'+petRoster[i].name+
+        '</td><td>'+petRoster[i].species+
+        '</td><td>'+petRoster[i].age+
+        '</td><td>'+petRoster[i].image+'</td></tr>');
+      }
+    });
+
+  };// end showAll
+  $scope.showAll();
 }]);
