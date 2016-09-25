@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<script src="vendors/angular.min.js"></script>
-    <script src="scripts/scripts.js"></script>
-		<link rel="stylesheet" href="vendors/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/styles.css"/>
-		<title>Page Title</title>
-	</head>
-	<body ng-app='myApp'>
-		<h1>Placeholder Text</h1>
+<html ng-app='myApp'>
+<head>
+	<script src="vendors/angular.min.js"></script>
+	<script src="scripts/scripts.js"></script>
+	<link rel="stylesheet" href="vendors/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/styles.css"/>
+	<title>Prime Weekend Challenge 5</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Pet Tracker</h1>
 		<div ng-controller="mainController">
-			What song is horrible?<input type="text" ng-model="badSong">
+			<p>Please enter the pet's information:</p>
 			<p>
-				{{ badSong }} is a bad song (according to your opinions)
+				<input type="text" id="nameIn" placeholder="Pet Name">
+				<input type="text" id="speciesIn" placeholder="Pet Species">
+				<input type="number" id="ageIn" placeholder="Pet Age">
+				<input type="text" id="imageIn" placeholder="Pet Image URL">
 			</p>
-			<button ng-click="addSong()">Add Song</button>
+			<p>
+				<button ng-click="addPet()">Add Pet to Track</button>
+			</p>
+			<p>
+				<button ng-click="showAll()">Show All Pets</button><br>
+			</p>
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="petRosterView" ng-repeat="pet in petRoster">
+				<div class="row">
+					<img class="col-xs-12" src={{pet.image}} alt="Pet image of {{pet.name}}" />
+				</div>
+				<div class="row">
+					<div class="col-xs-4">Name: {{pet.name}}</div>
+					<div class="col-xs-4">Species: {{pet.species}}</div>
+					<div class="col-xs-4">Age: {{pet.age}}</div>
+				</div>
+			</div> <!-- end ng-repeat -->
 		</div>
-	</body>
+	</div>
+</body>
 </html>

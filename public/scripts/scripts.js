@@ -3,7 +3,7 @@ console.log('scripts.js sourced!');
 
 var myApp = angular.module('myApp',[]);
 
-var allPets = [];
+var petRoster = [];
 
 /// == Function Declarations == ///
 
@@ -12,6 +12,8 @@ var allPets = [];
 
 myApp.controller('mainController', ['$scope','$http',function($scope,$http){
   console.log('NG');
+
+  $scope.petRoster = petRoster;
 
   $scope.addPet = function(){
     console.log('in addPet', $scope.newPet);
@@ -32,9 +34,6 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
     }).then(function ( response ){
       console.log('back from server with:', response);
     });
-
-    allPets.push(newObject);
-    console.log('allPets:', allPets);
   }; // end addPet
 
   $scope.showAll = function(){
@@ -44,27 +43,31 @@ myApp.controller('mainController', ['$scope','$http',function($scope,$http){
       url: '/all',
     }).then(function ( response ){
       console.log('back from server with:', response);
-      petRoster = response.data;
+      $scope.petRoster = response.data;
       var petsView = angular.element(document.getElementById('petRosterView'));
       petsView.empty();
-      for (var i = 0; i < petRoster.length; i++) {
+      for (var i = 0; i < $scope.petRoster.length; i++) {
+        var thisPet = $scope.petRoster[i];
+        var petName = thisPet.name;
+        var petSpecies = thisPet.species;
+        var petAge = thisPet.age;
+        var petImage = thisPet.image;
+
         // first add blank strings where needed
-        if (!(petRoster[i].name)){
-          petRoster[i].name = '';
+        if (!(petName)){
+          petName = '';
         }
-        if (!(petRoster[i].species)){
-          petRoster[i].species = '';
+        if (!(petSpecies)){
+          petSpecies = '';
         }
-        if (!(petRoster[i].age)){
-          petRoster[i].age = '';
+        if (!(petAge)){
+          petAge = '';
         }
-        if (!(petRoster[i].image)){
-          petRoster[i].image = '';
+        if (!(petImage)){
+          petImage = '';
         }
-        petsView.append('<tr><td>'+(i+1)+'</td><td>'+petRoster[i].name+
-        '</td><td>'+petRoster[i].species+
-        '</td><td>'+petRoster[i].age+
-        '</td><td>'+petRoster[i].image+'</td></tr>');
+        petsView.append('<tr><td>'+(i+1)+'</td><td>'+petName+'</td><td>'+
+          petSpecies+'</td><td>'+petAge+'</td><td>'+petImage+'</td></tr>');
       }
     });
 
