@@ -1,9 +1,5 @@
 Basic Set-up
 ============
-
-6) git add . & git commit -m "Initial Commit"
-7) git push origin master
-
 Weekend Challenge #5 Description
 This is the LAST weekend challenge!
 
