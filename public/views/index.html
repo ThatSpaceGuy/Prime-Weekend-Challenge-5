@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+	<script src="/vendors/angular.min.js"></script>
+	<script src="/vendors/angular-route.min.js"></script>
+	<script src="/scripts/scripts.js"></script>
+	<script src="/scripts/controllers/homeController.js"></script>
+	<script src="/scripts/controllers/addController.js"></script>
+	<script src="/scripts/controllers/petsController.js"></script>
+	<link rel="stylesheet" href="vendors/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/styles.css"/>
+	<title>Prime Weekend Challenge 5</title>
+</head>
+<body>
+	<div class="container" ng-controller="mainController">
+		<h1>Pet Tracker</h1>
+		<div class="row">
+      <a class="col-xs-4" href="#home">Home</a>
+			<a class="col-xs-4" href="#add">Add a Pet</a>
+			<a class="col-xs-4" href="#pets">View Tracked Pets</a>
+		</div>
+		<main ng-view>
+
+		</main>
+	</div>
+</body>
+</html>

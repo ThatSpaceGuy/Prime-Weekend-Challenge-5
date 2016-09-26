@@ -1,9 +1,12 @@
 var express = require('express');
+var path = require('path');
+var mongoose = require('mongoose');
+
 var router = express.Router();
 
-var mongoose = require('mongoose');
 //model
 var Pet = require('../models/pet.js');
+
 
 router.get('/all', function(req,res){
   console.log('/all route hit');

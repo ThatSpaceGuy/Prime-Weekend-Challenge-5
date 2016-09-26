@@ -1,0 +1,15 @@
+<div ng-controller="addController">
+  <p>Please enter the pet's information:</p>
+  <p>
+    <input type="text" ng-model="nameIn" placeholder="Pet Name">
+    <input type="text" ng-model="speciesIn" placeholder="Pet Species">
+    <input type="number" ng-model="ageIn" placeholder="Pet Age">
+    <input type="text" ng-model="imageIn" placeholder="Pet Image URL">
+  </p>
+  <p>
+    <button ng-click="addPet()">Track this Pet!</button>
+  </p>
+  <p>
+    <button ng-click="showAll()">Show All Tracked Pets</button><br>
+  </p>
+</div>

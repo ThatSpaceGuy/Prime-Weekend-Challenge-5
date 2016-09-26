@@ -37,16 +37,14 @@ app.listen('3000','localhost',function(){
   console.log('Server is listening on port 3000');
 });
 
+
 // base url hit
 app.get('/', function(req,res){
   console.log('base url hit');
 
-  res.sendFile(path.resolve('public/index.html'));
+  console.log(path.resolve('public/views/index.html'));
+  res.sendFile(path.resolve('public/views/index.html'));
 });
-
-
-
-
 
 // setup 'public' as a static resource
 app.use(express.static('public'));
