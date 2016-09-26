@@ -66,8 +66,4 @@ Versioning Plan
 * 1.3.0 - HTML - Button to delete
 * 2.0.0 - Test app and sign off on Hard Mode
 
-* 2.1.0 -
-
-
-Pro Mode
-Look into Filtering. In the Pets view, include a button to turn on Alphabetical Sorting of the pets that can be toggled on and off.
+* 3.0.0 - Pro Mode - Look into Filtering. In the Pets view, include a button to turn on Alphabetical Sorting of the pets that can be toggled on and off.

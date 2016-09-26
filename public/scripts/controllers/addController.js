@@ -1,6 +1,8 @@
 myApp.controller("addController", ["$scope", "$http", function($scope, $http){
   console.log("Add a pet here!");
 
+  var infoBox = angular.element(document.getElementById('addInfoDiv'));
+
   $scope.addPet = function(){
     console.log('in addPet', $scope.nameIn);
 
@@ -19,7 +21,10 @@ myApp.controller("addController", ["$scope", "$http", function($scope, $http){
       data: newObject
     }).then(function ( response ){
       console.log('back from server with:', response);
-    });
-    $scope.showAll();
+    }); // end http
+
+    infoBox.empty();
+    infoBox.append(newObject.petName+' added successfully!');
+
   }; // end addPet
 }]);
