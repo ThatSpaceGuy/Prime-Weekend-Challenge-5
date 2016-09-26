@@ -3,7 +3,6 @@ myApp.controller("petsController", ["$scope", "$http", function($scope, $http){
 
   var petRoster = [];
 
-
   $scope.showAll = function(){
     console.log('in showAll', $scope);
     $http({
@@ -49,7 +48,6 @@ myApp.controller("petsController", ["$scope", "$http", function($scope, $http){
       urlString = '/sortA';
     }
 
-
     $http({
       method: 'GET',
       url: urlString,
@@ -64,5 +62,4 @@ myApp.controller("petsController", ["$scope", "$http", function($scope, $http){
 
   // Show all database results immediately
   $scope.showAll();
-
 }]);

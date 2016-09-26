@@ -28,9 +28,3 @@ myApp.config(["$routeProvider",function($routeProvider){
       redirectTo: "/home"
     });
 }]);
-
-
-myApp.controller('mainController', ['$scope','$http',function($scope,$http){
-  console.log('NG');
-
-}]);
