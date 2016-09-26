@@ -5,10 +5,13 @@
     <div class="clearfix visible-sm-block" ng-if="$index % 2 == 0"></div>
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" id="petRosterView">
       <div class="row">
-        <img class="col-xs-12" src={{pet.image}} alt="Pet image of {{pet.name}}" />
+        <img class="col-xs-12" ng-src="{{pet.image}}" alt="Pet image of {{pet.name}}" />
       </div>
       <div class="row">
-        <div class="col-xs-12">#{{$index+1}} {{pet.name}} ({{pet.species}}) Age: {{pet.age}}</div>
+        #{{$index+1}} {{pet.name}} ({{pet.species}}) Age: {{pet.age}}
+      </div>
+      <div class="row">
+          <button class="btn btn-danger" ng-click="deletePet($index)">Remove #{{$index+1}} {{pet.name}}</button>
       </div>
     </div>
   </div> <!-- end ng-repeat -->

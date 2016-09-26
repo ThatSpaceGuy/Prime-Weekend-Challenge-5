@@ -44,4 +44,13 @@ router.post('/create', function(req, res){
   });
 });
 
+// delete assignment
+router.delete('/delete', function(req, res){
+  console.log('hit delete route with:',req.body);
+  Pet.findByIdAndRemove({"_id":req.body.id}, function(){
+    console.log("Pet "+ req.body.id +" has been deleted.");
+    res.send(200);
+  });// end callback
+});// end delete
+
 module.exports = router;

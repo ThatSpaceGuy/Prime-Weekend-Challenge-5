@@ -1,6 +1,9 @@
 myApp.controller("petsController", ["$scope", "$http", function($scope, $http){
   console.log("Pets view!");
 
+  var petRoster = [];
+
+
   $scope.showAll = function(){
     console.log('in showAll', $scope);
     $http({
@@ -8,34 +11,35 @@ myApp.controller("petsController", ["$scope", "$http", function($scope, $http){
       url: '/all',
     }).then(function ( response ){
       console.log('back from server with:', response);
+      // assign database results to petRoster so that ng-repeat can display
       $scope.petRoster = response.data;
-      // var petsView = angular.element(document.getElementById('petRosterView'));
-      // petsView.empty();
-      // for (var i = 0; i < $scope.petRoster.length; i++) {
-      //   var thisPet = $scope.petRoster[i];
-      //   var petName = thisPet.name;
-      //   var petSpecies = thisPet.species;
-      //   var petAge = thisPet.age;
-      //   var petImage = thisPet.image;
-      //
-      //   // first add blank strings where needed
-      //   if (!(petName)){
-      //     petName = '';
-      //   }
-      //   if (!(petSpecies)){
-      //     petSpecies = '';
-      //   }
-      //   if (!(petAge)){
-      //     petAge = '';
-      //   }
-      //   if (!(petImage)){
-      //     petImage = '';
-      //   }
-      //   petsView.append('<tr><td>'+(i+1)+'</td><td>'+petName+'</td><td>'+
-      //     petSpecies+'</td><td>'+petAge+'</td><td>'+petImage+'</td></tr>');
-      // }
+      // save to global for deleting purposes
+      petRoster = $scope.petRoster;
     });
-
   };// end showAll
+
+  $scope.deletePet = function(requestedID){
+    console.log('in deletePet', $scope);
+
+    var recordNum = Number(requestedID);
+    console.log(recordNum);
+    var idToDelete = {
+      id: petRoster[recordNum]._id
+    };
+    console.log(idToDelete);
+
+    $http({
+      method: 'DELETE',
+      url: '/delete',
+      data: idToDelete,
+      headers: {"Content-Type": "application/json;charset=utf-8"}
+    }).then(function ( response ){
+      console.log('back from server with:', response);
+    });
+    $scope.showAll();
+  }; // end delete Item
+
+  // Show all database results immediately
   $scope.showAll();
+
 }]);
