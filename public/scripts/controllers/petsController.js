@@ -39,6 +39,29 @@ myApp.controller("petsController", ["$scope", "$http", function($scope, $http){
     $scope.showAll();
   }; // end delete Item
 
+  $scope.showAlpha = function(direction){
+    console.log('in showAlpha with:', direction);
+    var urlString;
+
+    if (direction==='D'){
+      urlString = '/sortD';
+    } else {
+      urlString = '/sortA';
+    }
+
+
+    $http({
+      method: 'GET',
+      url: urlString,
+    }).then(function ( response ){
+      console.log('back from server with:', response);
+      // assign database results to petRoster so that ng-repeat can display
+      $scope.petRoster = response.data;
+      // save to global for deleting purposes
+      petRoster = $scope.petRoster;
+    });
+  };// end showAll
+
   // Show all database results immediately
   $scope.showAll();
 

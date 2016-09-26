@@ -7,7 +7,6 @@ var router = express.Router();
 //model
 var Pet = require('../models/pet.js');
 
-
 router.get('/all', function(req,res){
   console.log('/all route hit');
     Pet.find({}, function(err, dbResults){
@@ -20,6 +19,32 @@ router.get('/all', function(req,res){
       }
     });
 });
+
+router.get('/sortA', function(req,res){
+  console.log('/sortA route hit');
+    Pet.find({}).sort({ name : 1}).exec( function(err, dbResults){
+      if(err){
+        console.log('error occurred:', err);
+        res.sendStatus(500); // Internal Server error
+      } else {
+        console.log('/sortA route returned:', dbResults);
+        res.send(dbResults);
+      }
+    });
+}); // end sortA
+
+router.get('/sortD', function(req,res){
+  console.log('/sortD route hit');
+    Pet.find({}).sort({ name : -1}).exec( function(err, dbResults){
+      if(err){
+        console.log('error occurred:', err);
+        res.sendStatus(500); // Internal Server error
+      } else {
+        console.log('/sortD route returned:', dbResults);
+        res.send(dbResults);
+      }
+    });
+}); // end sortD
 
 router.post('/create', function(req, res){
   console.log('hit the /create post with:', req.body);

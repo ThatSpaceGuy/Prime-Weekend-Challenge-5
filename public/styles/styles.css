@@ -8,10 +8,32 @@
 
 body {
 	text-align: center;
+	background-image: url('../media/grass-background.jpg');
 }
 img {
+	padding-top: 5px;
 	margin: 0 auto;
 	/*margin-top: 30px;*/
 	/*max-width: 300px;*/
 	border-radius: 10%;
+}
+
+#mainNav, #mainWindow {
+	border: 1px solid black;
+	border-radius: 10px;
+}
+
+
+.container {
+	background-color: white;
+	padding: 0 5px 5px 5px;
+}
+
+#mainNav {
+	background-image: url('../media/animal-tracks.jpg');
+	background-size: cover;
+}
+
+.btn-primary {
+	margin-top: 5px;
 }

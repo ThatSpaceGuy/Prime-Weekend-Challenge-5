@@ -1,4 +1,13 @@
 <div class="row" ng-controller="petsController">
+  <div class="col-xs-4">
+    <button class="btn btn-primary" ng-click="showAlpha('A')">Sort Name Ascending</button>
+  </div>
+  <div class="col-xs-4">
+    <button class="btn btn-primary" ng-click="showAll()">Sort Default (Tracking Date)</button>
+  </div>
+  <div class="col-xs-4">
+    <button class="btn btn-primary" ng-click="showAlpha('D')">Sort Name Descending</button>
+  </div>
   <div  ng-repeat="pet in petRoster">
     <div class="clearfix visible-lg-block" ng-if="$index % 4 == 0"></div>
     <div class="clearfix visible-md-block" ng-if="$index % 3 == 0"></div>
